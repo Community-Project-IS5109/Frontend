@@ -1,7 +1,14 @@
 import { useState } from "react";
 
-function Login() {
+function Login({ demoCredentials }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const applyDemoCredentials = (credentials) => {
+    setEmail(credentials.email);
+    setPassword(credentials.password);
+  };
 
   return (
     <section className="auth-card" aria-labelledby="login-title">
@@ -21,7 +28,7 @@ function Login() {
             </select>
           </label>
           <p className="field-note">
-            Options: CEO / Admin · Manager · Data-entry person
+            Options: CEO / Admin - Manager - Data-entry person
           </p>
           <p className="field-note">
             Choosing CEO / Admin does not grant access. Your account permissions
@@ -38,6 +45,8 @@ function Login() {
               type="email"
               autoComplete="email"
               placeholder="manager@foresthill.example"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               required
             />
           </label>
@@ -48,6 +57,8 @@ function Login() {
               name="password"
               type={showPassword ? "text" : "password"}
               autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
               required
             />
           </label>
@@ -65,6 +76,27 @@ function Login() {
           <button type="submit">Log in</button>
         </div>
       </form>
+      <aside className="demo-credentials" aria-labelledby="demo-title">
+        <h2 id="demo-title">Demo credentials</h2>
+        <p>Use either demo account to preview the login UI.</p>
+        <div className="demo-credentials__list">
+          {demoCredentials.map((credentials) => (
+            <div className="demo-credentials__item" key={credentials.email}>
+              <div>
+                <strong>{credentials.label}</strong>
+                <span>{credentials.email}</span>
+                <span>{credentials.password}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => applyDemoCredentials(credentials)}
+              >
+                Use demo
+              </button>
+            </div>
+          ))}
+        </div>
+      </aside>
       <p className="auth-card__footer">
         Need an account? <a href="/signup">Sign up</a>
       </p>
