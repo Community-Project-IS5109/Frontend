@@ -161,6 +161,77 @@
   color: #728078;
 }
 
+.demo-credentials {
+  margin-top: 34px;
+  border: 1px solid #dce5df;
+  border-radius: 8px;
+  padding: 20px;
+  background: #f7faf8;
+}
+
+.demo-credentials h2 {
+  margin: 0;
+  color: #26443a;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.demo-credentials p {
+  margin: 5px 0 16px;
+  color: #718078;
+  font-size: 0.94rem;
+}
+
+.demo-credentials__list {
+  display: grid;
+  gap: 10px;
+}
+
+.demo-credentials__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid #e1e9e4;
+  padding-top: 12px;
+}
+
+.demo-credentials__item div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.demo-credentials__item strong {
+  color: #26443a;
+  font-size: 0.9rem;
+}
+
+.demo-credentials__item span {
+  overflow-wrap: anywhere;
+  color: #718078;
+  font-family: Consolas, monospace;
+  font-size: 0.82rem;
+}
+
+.demo-credentials__item button {
+  flex: 0 0 auto;
+  border: 1px solid #20694d;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #20694d;
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.demo-credentials__item button:hover {
+  color: #fff;
+  background: #20694d;
+}
+
 @media (max-width: 700px) {
   .auth-layout {
     padding: 30px 16px 44px;
@@ -180,6 +251,15 @@
   }
 
   .auth-form button {
+    width: 100%;
+  }
+
+  .demo-credentials__item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .demo-credentials__item button {
     width: 100%;
   }
 }
