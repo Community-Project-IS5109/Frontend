@@ -4,10 +4,27 @@ function Login({ demoCredentials }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const applyDemoCredentials = (credentials) => {
     setEmail(credentials.email);
     setPassword(credentials.password);
+    setLoginError("");
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const credentialsMatch = demoCredentials.some(
+      (credentials) =>
+        credentials.email === email && credentials.password === password,
+    );
+
+    if (!credentialsMatch) {
+      setLoginError("Use one of the demo accounts shown below to continue.");
+      return;
+    }
+
+    window.location.assign("/dashboard");
   };
 
   return (
@@ -16,7 +33,7 @@ function Login({ demoCredentials }) {
       <p className="auth-card__intro">
         Choose your role, then enter your account details.
       </p>
-      <form className="auth-form" onSubmit={(event) => event.preventDefault()}>
+      <form className="auth-form" onSubmit={handleSubmit}>
         <div className="form-section">
           <h2>1. Choose your role</h2>
           <label htmlFor="login-role">
@@ -74,6 +91,11 @@ function Login({ demoCredentials }) {
             <a href="/reset-password">Forgot password?</a>
           </div>
           <button type="submit">Log in</button>
+          {loginError && (
+            <p className="form-error" role="alert">
+              {loginError}
+            </p>
+          )}
         </div>
       </form>
       <aside className="demo-credentials" aria-labelledby="demo-title">

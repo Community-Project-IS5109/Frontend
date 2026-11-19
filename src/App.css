@@ -232,6 +232,117 @@
   background: #20694d;
 }
 
+.form-error {
+  margin: 0;
+  color: #a53d2b;
+  font-size: 0.94rem;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  min-height: 100svh;
+  background: #f5f7f4;
+}
+
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 20px;
+  color: #dcebe3;
+  background: #163d32;
+}
+
+.dashboard-brand {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.dashboard-sidebar__caption {
+  margin: 0 0 20px;
+  color: #9ebcaf;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-nav {
+  display: grid;
+  gap: 22px;
+}
+
+.dashboard-nav__group {
+  display: grid;
+  gap: 4px;
+}
+
+.dashboard-nav__group p {
+  margin: 0 0 5px;
+  color: #91b1a1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-nav a,
+.dashboard-logout {
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: #dcebe3;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.dashboard-nav a:hover,
+.dashboard-logout:hover {
+  color: #fff;
+  background: #245846;
+}
+
+.dashboard-logout {
+  margin-top: auto;
+}
+
+.dashboard-content {
+  min-width: 0;
+  padding: 10px 0;
+}
+
+.dashboard-placeholder {
+  width: min(100% - 48px, 760px);
+  margin: 80px auto;
+  border: 1px solid #d5ded8;
+  border-radius: 12px;
+  padding: 48px;
+  background: #fff;
+}
+
+.dashboard-placeholder__eyebrow {
+  margin: 0 0 10px;
+  color: #20694d;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.dashboard-placeholder h1 {
+  margin: 0 0 12px;
+  color: #193e32;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.dashboard-placeholder p:last-child {
+  margin: 0;
+  color: #728078;
+}
+
 @media (max-width: 700px) {
   .auth-layout {
     padding: 30px 16px 44px;
@@ -261,5 +372,22 @@
 
   .demo-credentials__item button {
     width: 100%;
+  }
+
+  .dashboard-layout {
+    display: block;
+  }
+
+  .dashboard-sidebar {
+    padding: 20px 16px;
+  }
+
+  .dashboard-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .dashboard-logout {
+    margin-top: 18px;
   }
 }
